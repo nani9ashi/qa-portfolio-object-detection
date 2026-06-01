@@ -1,0 +1,16 @@
+# Python 仮想環境
+.venv/
+__pycache__/
+*.pyc
+
+# 評価データ・生データ（リポジトリには含めない）
+exploration/data/
+exploration/results/*.json
+exploration/results/*.csv
+
+# 実行時にダウンロードするモデル重み
+*.pt
+
+# エディタ設定
+.idea/
+.vscode/
