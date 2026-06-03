@@ -1,0 +1,30 @@
+{
+  "case_id": "EVAL-007",
+  "title": "PR曲線（参考）",
+  "mandatory": false,
+  "executed": true,
+  "scope": {
+    "model": "yolov8n.pt",
+    "device": "cuda",
+    "dataset": "COCO val2017",
+    "num_images": 5000,
+    "target_classes": [
+      "person",
+      "bicycle",
+      "car",
+      "bus",
+      "truck"
+    ],
+    "operating_conf": 0.25,
+    "iou_match": 0.5,
+    "iscrowd": "excluded"
+  },
+  "metrics": {
+    "csv": "results/eval_007_pr_curve.csv",
+    "points": 19
+  },
+  "criteria": {},
+  "result": "REFERENCE",
+  "flags": [],
+  "run_at": "2026-06-03T14:01:48+09:00"
+}

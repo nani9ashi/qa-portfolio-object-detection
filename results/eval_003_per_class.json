@@ -1,0 +1,72 @@
+{
+  "case_id": "EVAL-003",
+  "title": "クラス別の再現率・適合率（参考）",
+  "mandatory": false,
+  "executed": true,
+  "scope": {
+    "model": "yolov8n.pt",
+    "device": "cuda",
+    "dataset": "COCO val2017",
+    "num_images": 5000,
+    "target_classes": [
+      "person",
+      "bicycle",
+      "car",
+      "bus",
+      "truck"
+    ],
+    "operating_conf": 0.25,
+    "iou_match": 0.5,
+    "iscrowd": "excluded"
+  },
+  "metrics": {
+    "per_class": {
+      "person": {
+        "recall": 0.6665120163310755,
+        "precision": 0.7692225315913472,
+        "mean_iou_tp": 0.8478542308958529,
+        "tp": 7183,
+        "fp": 2155,
+        "fn": 3594
+      },
+      "bicycle": {
+        "recall": 0.4012738853503185,
+        "precision": 0.7039106145251397,
+        "mean_iou_tp": 0.7902245439702982,
+        "tp": 126,
+        "fp": 53,
+        "fn": 188
+      },
+      "car": {
+        "recall": 0.5114702815432742,
+        "precision": 0.6751548520302821,
+        "mean_iou_tp": 0.8300197069177729,
+        "tp": 981,
+        "fp": 472,
+        "fn": 937
+      },
+      "bus": {
+        "recall": 0.6501766784452296,
+        "precision": 0.7829787234042553,
+        "mean_iou_tp": 0.9182970327993004,
+        "tp": 184,
+        "fp": 51,
+        "fn": 99
+      },
+      "truck": {
+        "recall": 0.3526570048309179,
+        "precision": 0.5703125,
+        "mean_iou_tp": 0.8618917240235308,
+        "tp": 146,
+        "fp": 110,
+        "fn": 268
+      }
+    }
+  },
+  "criteria": {},
+  "result": "REFERENCE",
+  "flags": [
+    "class_recall_disparity"
+  ],
+  "run_at": "2026-06-03T14:01:48+09:00"
+}

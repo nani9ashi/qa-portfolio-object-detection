@@ -1,0 +1,54 @@
+{
+  "case_id": "EVAL-002",
+  "title": "mAP（参考）",
+  "mandatory": false,
+  "executed": true,
+  "scope": {
+    "model": "yolov8n.pt",
+    "device": "cuda",
+    "dataset": "COCO val2017",
+    "num_images": 5000,
+    "target_classes": [
+      "person",
+      "bicycle",
+      "car",
+      "bus",
+      "truck"
+    ],
+    "operating_conf": 0.25,
+    "iou_match": 0.5,
+    "iscrowd": "excluded"
+  },
+  "metrics": {
+    "overall": {
+      "mAP@0.5": 0.5850740634073691,
+      "mAP@0.5:0.95": 0.4050345188054391
+    },
+    "per_class": {
+      "person": {
+        "AP@0.5": 0.766875973604798,
+        "AP@0.5:0.95": 0.5257337923774594
+      },
+      "bicycle": {
+        "AP@0.5": 0.47081280097105405,
+        "AP@0.5:0.95": 0.26831330303296413
+      },
+      "car": {
+        "AP@0.5": 0.5720207505914078,
+        "AP@0.5:0.95": 0.3648262683843466
+      },
+      "bus": {
+        "AP@0.5": 0.7247244165941061,
+        "AP@0.5:0.95": 0.6045878670263168
+      },
+      "truck": {
+        "AP@0.5": 0.39093637527547975,
+        "AP@0.5:0.95": 0.2617113632061084
+      }
+    }
+  },
+  "criteria": {},
+  "result": "REFERENCE",
+  "flags": [],
+  "run_at": "2026-06-03T14:01:48+09:00"
+}

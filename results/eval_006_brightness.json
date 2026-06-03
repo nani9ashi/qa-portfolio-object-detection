@@ -1,0 +1,100 @@
+{
+  "case_id": "EVAL-006",
+  "title": "明度別の再現率・適合率",
+  "mandatory": true,
+  "executed": true,
+  "scope": {
+    "model": "yolov8n.pt",
+    "device": "cuda",
+    "dataset": "COCO val2017",
+    "num_images": 5000,
+    "target_classes": [
+      "person",
+      "bicycle",
+      "car",
+      "bus",
+      "truck"
+    ],
+    "operating_conf": 0.25,
+    "iou_match": 0.5,
+    "iscrowd": "excluded"
+  },
+  "metrics": {
+    "by_brightness": {
+      "low": {
+        "recall": 0.6322207958921694,
+        "precision": 0.7530581039755352,
+        "tp": 985,
+        "fp": 323,
+        "fn": 573,
+        "num_images": 592,
+        "under_min": false
+      },
+      "medium": {
+        "recall": 0.6281894442502621,
+        "precision": 0.7519874476987448,
+        "tp": 7189,
+        "fp": 2371,
+        "fn": 4255,
+        "num_images": 4061,
+        "under_min": false
+      },
+      "high": {
+        "recall": 0.6335227272727273,
+        "precision": 0.7521079258010118,
+        "tp": 446,
+        "fp": 147,
+        "fn": 258,
+        "num_images": 347,
+        "under_min": false
+      }
+    }
+  },
+  "criteria": {
+    "recall_min": 0.8,
+    "precision_min": 0.7,
+    "min_unit": "images",
+    "min_subset": 30
+  },
+  "result": "FAIL",
+  "flags": [],
+  "gate": {
+    "low": {
+      "recall": {
+        "value": 0.6322207958921694,
+        "min": 0.8,
+        "pass": false
+      },
+      "precision": {
+        "value": 0.7530581039755352,
+        "min": 0.7,
+        "pass": true
+      }
+    },
+    "medium": {
+      "recall": {
+        "value": 0.6281894442502621,
+        "min": 0.8,
+        "pass": false
+      },
+      "precision": {
+        "value": 0.7519874476987448,
+        "min": 0.7,
+        "pass": true
+      }
+    },
+    "high": {
+      "recall": {
+        "value": 0.6335227272727273,
+        "min": 0.8,
+        "pass": false
+      },
+      "precision": {
+        "value": 0.7521079258010118,
+        "min": 0.7,
+        "pass": true
+      }
+    }
+  },
+  "run_at": "2026-06-03T14:01:48+09:00"
+}

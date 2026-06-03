@@ -1,0 +1,106 @@
+{
+  "case_id": "EVAL-004",
+  "title": "物体サイズ別の再現率・適合率",
+  "mandatory": true,
+  "executed": true,
+  "scope": {
+    "model": "yolov8n.pt",
+    "device": "cuda",
+    "dataset": "COCO val2017",
+    "num_images": 5000,
+    "target_classes": [
+      "person",
+      "bicycle",
+      "car",
+      "bus",
+      "truck"
+    ],
+    "operating_conf": 0.25,
+    "iou_match": 0.5,
+    "iscrowd": "excluded"
+  },
+  "metrics": {
+    "by_size": {
+      "small": {
+        "recall": 0.3630716134598792,
+        "precision": 0.613522156235724,
+        "tp_gt": 2104,
+        "tp_det": 1343,
+        "fp": 846,
+        "fn": 3691,
+        "gt_count": 5795,
+        "det_count": 2189,
+        "under_min": false
+      },
+      "medium": {
+        "recall": 0.7671912050010778,
+        "precision": 0.7259700176366843,
+        "tp_gt": 3559,
+        "tp_det": 3293,
+        "fp": 1243,
+        "fn": 1080,
+        "gt_count": 4639,
+        "det_count": 4536,
+        "under_min": false
+      },
+      "large": {
+        "recall": 0.9037286063569682,
+        "precision": 0.8412162162162162,
+        "tp_gt": 2957,
+        "tp_det": 3984,
+        "fp": 752,
+        "fn": 315,
+        "gt_count": 3272,
+        "det_count": 4736,
+        "under_min": false
+      }
+    }
+  },
+  "criteria": {
+    "recall_min": 0.8,
+    "precision_min": 0.7,
+    "min_unit": "objects",
+    "min_subset": 30
+  },
+  "result": "FAIL",
+  "flags": [],
+  "gate": {
+    "small": {
+      "recall": {
+        "value": 0.3630716134598792,
+        "min": 0.8,
+        "pass": false
+      },
+      "precision": {
+        "value": 0.613522156235724,
+        "min": 0.7,
+        "pass": false
+      }
+    },
+    "medium": {
+      "recall": {
+        "value": 0.7671912050010778,
+        "min": 0.8,
+        "pass": false
+      },
+      "precision": {
+        "value": 0.7259700176366843,
+        "min": 0.7,
+        "pass": true
+      }
+    },
+    "large": {
+      "recall": {
+        "value": 0.9037286063569682,
+        "min": 0.8,
+        "pass": true
+      },
+      "precision": {
+        "value": 0.8412162162162162,
+        "min": 0.7,
+        "pass": true
+      }
+    }
+  },
+  "run_at": "2026-06-03T14:01:48+09:00"
+}

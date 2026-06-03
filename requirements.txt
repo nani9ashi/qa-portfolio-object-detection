@@ -5,7 +5,7 @@ cycler==0.12.1
 filelock==3.29.0
 fonttools==4.63.0
 fsspec==2026.4.0
-idna==3.17
+idna==3.18
 Jinja2==3.1.6
 kiwisolver==1.5.0
 MarkupSafe==3.0.3
@@ -27,10 +27,10 @@ requests==2.34.2
 scipy==1.17.1
 setuptools==70.2.0
 six==1.17.0
-sympy==1.14.0
-torch==2.12.0+cpu
-torchvision==0.27.0+cpu
+sympy==1.13.1
+torch==2.6.0+cu124
+torchvision==0.21.0+cu124
 typing_extensions==4.15.0
-ultralytics==8.4.58
+ultralytics==8.4.60
 ultralytics-thop==2.0.19
 urllib3==2.7.0

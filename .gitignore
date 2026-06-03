@@ -3,10 +3,9 @@
 __pycache__/
 *.pyc
 
-# 評価データ・生データ（リポジトリには含めない）
-exploration/data/
-exploration/results/*.json
-exploration/results/*.csv
+# 評価データ（ダウンロード）・検出キャッシュ（再生成可）。リポジトリには含めない
+data/
+cache/
 
 # 実行時にダウンロードするモデル重み
 *.pt

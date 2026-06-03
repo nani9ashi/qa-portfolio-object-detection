@@ -1,0 +1,63 @@
+{
+  "case_id": "EVAL-001",
+  "title": "全体の再現率・適合率・平均IoU",
+  "mandatory": true,
+  "executed": true,
+  "scope": {
+    "model": "yolov8n.pt",
+    "device": "cuda",
+    "dataset": "COCO val2017",
+    "num_images": 5000,
+    "target_classes": [
+      "person",
+      "bicycle",
+      "car",
+      "bus",
+      "truck"
+    ],
+    "operating_conf": 0.25,
+    "iou_match": 0.5,
+    "iscrowd": "excluded"
+  },
+  "metrics": {
+    "recall": 0.6289216401575952,
+    "precision": 0.7521158712154262,
+    "mean_iou_tp": 0.8467235975979133,
+    "tp": 8620,
+    "fp": 2841,
+    "fn": 5086,
+    "aux_iou75": {
+      "recall": 0.515978403618853,
+      "precision": 0.6170491231131664,
+      "mean_iou_tp": 0.8933103247806663,
+      "tp": 7072,
+      "fp": 4389,
+      "fn": 6634
+    }
+  },
+  "criteria": {
+    "recall_min": 0.95,
+    "precision_min": 0.7,
+    "mean_iou_min": 0.7
+  },
+  "result": "FAIL",
+  "flags": [],
+  "gate": {
+    "recall": {
+      "value": 0.6289216401575952,
+      "min": 0.95,
+      "pass": false
+    },
+    "precision": {
+      "value": 0.7521158712154262,
+      "min": 0.7,
+      "pass": true
+    },
+    "mean_iou_tp": {
+      "value": 0.8467235975979133,
+      "min": 0.7,
+      "pass": true
+    }
+  },
+  "run_at": "2026-06-03T14:01:48+09:00"
+}

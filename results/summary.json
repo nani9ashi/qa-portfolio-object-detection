@@ -1,0 +1,218 @@
+{
+  "run_at": "2026-06-03T14:02:01+09:00",
+  "environment": {
+    "device": "cuda",
+    "num_images": 5000,
+    "torch": "2.6.0+cu124",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 4080 SUPER"
+  },
+  "criteria": {
+    "OVERALL_RECALL_MIN": 0.95,
+    "OVERALL_PRECISION_MIN": 0.7,
+    "MEAN_IOU_MIN": 0.7,
+    "COND_RECALL_MIN": 0.8,
+    "COND_PRECISION_MIN": 0.7,
+    "INFER_TIME_MAX_MS": 100.0
+  },
+  "cases": {
+    "EVAL-001": {
+      "mandatory": true,
+      "executed": true,
+      "result": "FAIL",
+      "gate": {
+        "recall": {
+          "value": 0.6289216401575952,
+          "min": 0.95,
+          "pass": false
+        },
+        "precision": {
+          "value": 0.7521158712154262,
+          "min": 0.7,
+          "pass": true
+        },
+        "mean_iou_tp": {
+          "value": 0.8467235975979133,
+          "min": 0.7,
+          "pass": true
+        }
+      }
+    },
+    "EVAL-002": {
+      "mandatory": false,
+      "executed": true,
+      "result": "REFERENCE"
+    },
+    "EVAL-003": {
+      "mandatory": false,
+      "executed": true,
+      "result": "REFERENCE",
+      "flags": [
+        "class_recall_disparity"
+      ]
+    },
+    "EVAL-004": {
+      "mandatory": true,
+      "executed": true,
+      "result": "FAIL",
+      "gate": {
+        "small": {
+          "recall": {
+            "value": 0.3630716134598792,
+            "min": 0.8,
+            "pass": false
+          },
+          "precision": {
+            "value": 0.613522156235724,
+            "min": 0.7,
+            "pass": false
+          }
+        },
+        "medium": {
+          "recall": {
+            "value": 0.7671912050010778,
+            "min": 0.8,
+            "pass": false
+          },
+          "precision": {
+            "value": 0.7259700176366843,
+            "min": 0.7,
+            "pass": true
+          }
+        },
+        "large": {
+          "recall": {
+            "value": 0.9037286063569682,
+            "min": 0.8,
+            "pass": true
+          },
+          "precision": {
+            "value": 0.8412162162162162,
+            "min": 0.7,
+            "pass": true
+          }
+        }
+      }
+    },
+    "EVAL-005": {
+      "mandatory": true,
+      "executed": true,
+      "result": "FAIL",
+      "gate": {
+        "low": {
+          "recall": {
+            "value": 0.8157068062827225,
+            "min": 0.8,
+            "pass": true
+          },
+          "precision": {
+            "value": 0.7641000490436488,
+            "min": 0.7,
+            "pass": true
+          }
+        },
+        "medium": {
+          "recall": {
+            "value": 0.6994840928632846,
+            "min": 0.8,
+            "pass": false
+          },
+          "precision": {
+            "value": 0.8082463984103329,
+            "min": 0.7,
+            "pass": true
+          }
+        },
+        "high": {
+          "recall": {
+            "value": 0.5739176346356917,
+            "min": 0.8,
+            "pass": false
+          },
+          "precision": {
+            "value": 0.7335672830341476,
+            "min": 0.7,
+            "pass": true
+          }
+        }
+      }
+    },
+    "EVAL-006": {
+      "mandatory": true,
+      "executed": true,
+      "result": "FAIL",
+      "gate": {
+        "low": {
+          "recall": {
+            "value": 0.6322207958921694,
+            "min": 0.8,
+            "pass": false
+          },
+          "precision": {
+            "value": 0.7530581039755352,
+            "min": 0.7,
+            "pass": true
+          }
+        },
+        "medium": {
+          "recall": {
+            "value": 0.6281894442502621,
+            "min": 0.8,
+            "pass": false
+          },
+          "precision": {
+            "value": 0.7519874476987448,
+            "min": 0.7,
+            "pass": true
+          }
+        },
+        "high": {
+          "recall": {
+            "value": 0.6335227272727273,
+            "min": 0.8,
+            "pass": false
+          },
+          "precision": {
+            "value": 0.7521079258010118,
+            "min": 0.7,
+            "pass": true
+          }
+        }
+      }
+    },
+    "EVAL-007": {
+      "mandatory": false,
+      "executed": true,
+      "result": "REFERENCE"
+    },
+    "EVAL-008": {
+      "mandatory": true,
+      "executed": true,
+      "result": "PASS",
+      "gate": {
+        "mean_ms_per_frame": {
+          "value": 8.065540343924457,
+          "max": 100.0,
+          "pass": true
+        }
+      }
+    }
+  },
+  "overall_determination": "導入不可 (No-Go)",
+  "determination_basis": "AND判定: 不合格 = [EVAL-001(recall), EVAL-004(small.recall, small.precision, medium.recall), EVAL-005(medium.recall, high.recall), EVAL-006(low.recall, medium.recall, high.recall)]",
+  "mandatory_cases_considered": [
+    "EVAL-001",
+    "EVAL-004",
+    "EVAL-005",
+    "EVAL-006",
+    "EVAL-008"
+  ],
+  "mandatory_failing": [
+    "EVAL-001",
+    "EVAL-004",
+    "EVAL-005",
+    "EVAL-006"
+  ],
+  "mandatory_errored": [],
+  "mandatory_not_executed": []
+}

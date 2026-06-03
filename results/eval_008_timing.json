@@ -1,0 +1,43 @@
+{
+  "case_id": "EVAL-008",
+  "title": "推論時間（GPU・1フレーム）",
+  "mandatory": true,
+  "executed": true,
+  "scope": {
+    "model": "yolov8n.pt",
+    "device": "cuda",
+    "dataset": "COCO val2017",
+    "num_images": 5000,
+    "target_classes": [
+      "person",
+      "bicycle",
+      "car",
+      "bus",
+      "truck"
+    ],
+    "operating_conf": 0.25,
+    "iou_match": null,
+    "iscrowd": "excluded"
+  },
+  "metrics": {
+    "mean_ms_per_frame": 8.065540343924457,
+    "median_ms": 7.661099996767007,
+    "p95_ms": 10.787014987727161,
+    "warmup_frames": 10,
+    "timed_frames": 290,
+    "device": "NVIDIA GeForce RTX 4080 SUPER"
+  },
+  "criteria": {
+    "infer_time_max_ms": 100.0
+  },
+  "result": "PASS",
+  "flags": [],
+  "gate": {
+    "mean_ms_per_frame": {
+      "value": 8.065540343924457,
+      "max": 100.0,
+      "pass": true
+    }
+  },
+  "run_at": "2026-06-03T14:01:48+09:00"
+}
