@@ -66,11 +66,14 @@
 ## 5. 未決事項・懸念事項
 
 ### 未決事項
-- [ ] 見逃しの合格水準（実在対象のうち、どの程度を取りこぼさず検出できれば合格とするか）
-- [ ] 誤検出の許容上限（検出結果のうち、誤りがどの程度までなら現場運用上許容できるか）
-- [ ] 検出位置の許容ずれ（位置精度の合格水準）
-- [ ] 評価用データのサブセット（通常・小物体・低照度・混雑）をどう構成するか
-- [ ] 用途を本書の単一用途に絞るか、対比用途も評価範囲に含めるか
+
+> 依頼時点（2026-06-01）の未決事項であり、いずれも Issue [#1](https://github.com/nani9ashi/qa-portfolio-object-detection/issues/1)・[#2](https://github.com/nani9ashi/qa-portfolio-object-detection/issues/2) 等で解決済み。経緯の記録として残す。
+
+- [x] 見逃しの合格水準（実在対象のうち、どの程度を取りこぼさず検出できれば合格とするか） → AC-1 再現率 ≥ 0.95（Issue [#1](https://github.com/nani9ashi/qa-portfolio-object-detection/issues/1)）
+- [x] 誤検出の許容上限（検出結果のうち、誤りがどの程度までなら現場運用上許容できるか） → AC-3 適合率 ≥ 0.70（Issue [#1](https://github.com/nani9ashi/qa-portfolio-object-detection/issues/1)）
+- [x] 検出位置の許容ずれ（位置精度の合格水準） → AC-2 平均 IoU ≥ 0.70（Issue [#2](https://github.com/nani9ashi/qa-portfolio-object-detection/issues/2)）
+- [x] 評価用データのサブセット（通常・小物体・低照度・混雑）をどう構成するか → [test-design §4.3](./test-design.md) で定義（AC-4 / Issue [#2](https://github.com/nani9ashi/qa-portfolio-object-detection/issues/2)）
+- [x] 用途を本書の単一用途に絞るか、対比用途も評価範囲に含めるか → 単一用途に確定（[test-plan](./test-plan.md)・[test-design](./test-design.md)）
 
 ### 懸念事項
 - 調達候補モデルは COCO 学習済みであり、当社の現場映像とはドメインが異なる。COCO 上の公称性能が、当社用途でそのまま再現される保証はない（だからこそ本評価を行う）。

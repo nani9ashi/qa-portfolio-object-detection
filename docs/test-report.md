@@ -131,7 +131,7 @@ mAP@0.5 = 0.585、mAP@0.5:0.95 = 0.405。クラス別 AP@0.5 は person 0.767 / 
 
 - **person が全正解の 79%（10,777 / 13,706）を占める**。全体指標は実質的に person の性能に強く支配される。
 - クラス間で再現率に大きな開き（person 0.667 と truck 0.353 で 0.31 ポイント差）があり、偏りを示すフラグが立った。**truck・bicycle・car といった車両系で再現率が低い**。
-- 合格水準が「対象クラス全体」で立てられている現状の設計では、この偏りは全体平均に埋もれる。[test-design](./test-design.md) §3.1 で指摘したとおり、「歩行者と車両を検出する」という用途要件に照らせば、**クラス別（とりわけ車両系）の合格水準を別途立てるべきか**は次フェーズの論点として残る。
+- 合格水準が「対象クラス全体」で立てられている現状の設計では、この偏りは全体平均に埋もれる。[test-design](./test-design.md) §3.1 で指摘したとおり、「歩行者と車両を検出する」という用途要件に照らせば、**クラス別（とりわけ車両系）の合格水準を別途立てるべきか**は次フェーズの論点として残る（→ [§7.4](#74-次フェーズ作業項目バックログ)）。
 
 ### 5.3 PR 曲線（EVAL-007）— 運用点変更で合格可能か
 
@@ -179,7 +179,20 @@ mAP@0.5 = 0.585、mAP@0.5:0.95 = 0.405。クラス別 AP@0.5 は person 0.767 / 
 
 ### 7.3 推奨
 
-次フェーズでは、**選択肢 A（モデル変更）を第一候補として、再現率の改善幅と推論時間（AC-5）を実測**することを推奨する。あわせて、車両系クラスの再現率が低い点（§5.2）を踏まえ、**クラス別の合格水準を設けるかの検討**を提言する。本基準は暫定であり（Issue [#1](https://github.com/nani9ashi/qa-portfolio-object-detection/issues/1)）、事故統計に基づく絶対水準の本確定とともに、運用データを蓄積しながら見直す前提とする。最終的な導入可否および対応方針の決定は PdM が行う。
+次フェーズでは、**選択肢 A（モデル変更）を第一候補として、再現率の改善幅と推論時間（AC-5）を実測**することを推奨する。あわせて、車両系クラスの再現率が低い点（§5.2）を踏まえ、**クラス別の合格水準を設けるかの検討**を提言する。本基準は暫定であり（Issue [#1](https://github.com/nani9ashi/qa-portfolio-object-detection/issues/1)）、事故統計に基づく絶対水準の本確定とともに、運用データを蓄積しながら見直す前提とする。最終的な導入可否および対応方針の決定は PdM が行う。具体の作業項目・優先度・追跡は [§7.4](#74-次フェーズ作業項目バックログ) にまとめる。
+
+### 7.4 次フェーズ作業項目（バックログ）
+
+次フェーズで取り組む作業を優先度とともに一覧化する。
+
+| 優先 | 項目 | 内容（なぜ・何を） | 根拠 | 追跡 |
+|---|---|---|---|---|
+| P1 | モデル変更（YOLOv8m/l 等）の再評価 | 見逃しの底上げ。再現率の改善幅と推論時間（AC-5）を実測 | §7.2 選択肢A / §7.3 / §5.3 | [#3](https://github.com/nani9ashi/qa-portfolio-object-detection/issues/3) |
+| P1 | **motorcycle を対象クラスに追加して再評価** | カバレッジの穴を塞ぐ。モデル変更と束ねて実施（対象クラスへ motorcycle を追加し results/overlays/docs を再生成。ロック閾値は不変） | README「スコープと限界・次フェーズ」/ §2 | [#4](https://github.com/nani9ashi/qa-portfolio-object-detection/issues/4) |
+| P2 | クラス別合格水準（車両系）の要否検討 | 全体平均が偏りを隠す。車両系の再現率が低い | §5.2 / [test-design §3.1](./test-design.md) | [#5](https://github.com/nani9ashi/qa-portfolio-object-detection/issues/5) |
+| P2 | 現場映像でのドメイン実地評価（PoC） | COCO と現場のドメイン差。実地評価が別途必要 | §8 / [test-plan §8](./test-plan.md) | [#6](https://github.com/nani9ashi/qa-portfolio-object-detection/issues/6) |
+| P3 | 用途・対象シーン限定での部分導入の検討 | large・低混雑では水準近辺。限定運用の線引き | §7.2 選択肢C | [#7](https://github.com/nani9ashi/qa-portfolio-object-detection/issues/7) |
+| P3 | 事故統計に基づく絶対水準の本確定 | 現基準は暫定。運用データを蓄積しながら見直し | §7.3 / Issue [#1](https://github.com/nani9ashi/qa-portfolio-object-detection/issues/1) | [#8](https://github.com/nani9ashi/qa-portfolio-object-detection/issues/8) |
 
 ---
 
