@@ -1,0 +1,22 @@
+name: Criteria Integrity
+
+# 合格基準が後から緩められていないこと・統合スコアが合否ゲートに混入していないことを
+# 毎 push / PR で検証する。GPU も評価データも不要で数秒で完了する軽量チェック。
+# （評価本体は GPU と COCO データを要するため CI では実行しない。本ワークフローは
+#   results/summary.json に記録済みの「基準と判定構造」だけを検証する。）
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  criteria-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest
+      - run: pytest -q evaluation/test_criteria_integrity.py
