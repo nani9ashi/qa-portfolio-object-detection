@@ -47,17 +47,20 @@ def match_image_class(dets: List[Dict], gts: List[Dict], iou_thr: float) -> List
             g = gts[best_j]
             records.append({
                 "type": "TP", "iou": best_iou,
+                "det_box": d["box"], "gt_box": g["box"],
                 "det_area": d["area"], "det_size": config.size_bin(d["area"]),
                 "gt_area": g["area"], "gt_size": g["size_bin"],
             })
         else:
             records.append({
                 "type": "FP",
+                "det_box": d["box"],
                 "det_area": d["area"], "det_size": config.size_bin(d["area"]),
             })
     for j, g in enumerate(gts):
         if not matched[j]:
-            records.append({"type": "FN", "gt_area": g["area"], "gt_size": g["size_bin"]})
+            records.append({"type": "FN", "gt_box": g["box"],
+                            "gt_area": g["area"], "gt_size": g["size_bin"]})
     return records
 
 
