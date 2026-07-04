@@ -13,3 +13,6 @@ cache/
 # エディタ設定
 .idea/
 .vscode/
+
+# ローカル検算・作業用スクリプト
+scratch/
