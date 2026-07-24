@@ -16,3 +16,9 @@ cache/
 
 # ローカル検算・作業用スクリプト
 scratch/
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude Code (worktrees, plans, settings)
+.claude/
